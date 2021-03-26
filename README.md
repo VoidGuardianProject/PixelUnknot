@@ -1,29 +1,4 @@
-Decryption tool
-
-gather.sh
-
-download all the jpeg from a thread
-detect pk header and copy into matches
-
-gather.sh <domain> <board> <thread-id>
-gather.sh half.org v 123
-
-detect pk header
-python detect.py Q4example.jpg
-
-build with maven to
-
-crack/generate .coeff file for image with PixelUnknot java
-
-brutef5 is c version 
-brutef5cude is nvidia gpu version
-
-other
-
-https://code.google.com/archive/p/f5-steganography/ java
-java -jar f5.jar x -p plan -o message.txt Q4example.jpg
-
-/* /////////////// DISCLAIMER/////////////////////////////////
+--------------------- Disclaimer ---------------------
    This software is provided by the author and
    contributors ``as is'' and any express or implied
    warranties, including, but not limited to, the
@@ -41,4 +16,34 @@ java -jar f5.jar x -p plan -o message.txt Q4example.jpg
    or otherwise) arising in any way out of the use
    of this software, even if advised of the poss-
    ibility of such damage.
-//////////////////////////////////////////////////////*/
+--------------------------------------------------------
+
+This repo provides decryption tools
+
+
+gather.sh will download all the jpeg from a forum thread,
+detect any pk headers and copy that picture into matches
+It is used like such
+
+```
+gather.sh <domain> <board> <thread-id>
+gather.sh half.org v 123
+```
+
+To detect the pk header, we run:
+```
+python detect.py Q4example.jpg
+```
+
+Build the java code with maven to crack/generate .coeff file for image with PixelUnknot java.
+
+The `brutef5` folder is C code to brute force crack the f5 algo
+The `brutef5cuda` folder is nvidia gpu version C code to brute force crack the f5 algo.
+
+Other tools:
+See other of our repos for other tools:
+One such example is the f5 library which can be run as
+
+```
+java -jar f5.jar x -p plan -o message.txt Q4example.jpg
+```
