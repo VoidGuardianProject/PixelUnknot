@@ -7,6 +7,13 @@ import shutil
 # User Dependencies
 # -- None
 
+
+# TODO:
+# Program can be further updated:
+# See: https://www.devdungeon.com/content/working-binary-data-pythonpython%20convert%20hexadecimal%20to
+# Not sure if this article's methods are faster
+
+
 # Convert a block of bytes(?) to hexidecimal(?)
 def tohex(block):
     # convert the byte string block to a regular string
@@ -20,6 +27,7 @@ with open(sys.argv[1], "rb") as f:
 
     # Read the first 7 bytes
     str = tohex(f.read(7))                                              # Read 7 bytes
+    print_chars_from_hex(str)
     if str == '0xff 0xd8 0xff 0xdb 0x0 0x84 0x0 ':                      # Check the bytes against our header
         split = False                                                   # -- do not need to split
         str = tohex(f.read(64))                                         # -- read 64 more bytes
